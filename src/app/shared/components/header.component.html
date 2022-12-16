@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar color="{{ color }}">
+    <ion-title>{{ title }}</ion-title>
+    <ng-container *ngIf="isInDetails">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/movies"></ion-back-button>
+      </ion-buttons>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>

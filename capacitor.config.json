@@ -1,0 +1,16 @@
+{
+  "appId": "com.movieApp.com",
+  "appName": "movieApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "server": {
+    "cleartext": true
+  }
+}
