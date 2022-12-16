@@ -43,7 +43,7 @@ See image as following...
 
 <div align="center">
 
-<img width="470" alt="Capture" src="https://user-images.githubusercontent.com/43299285/208054101-a882f125-bf61-402d-a92a-b5728bf31c3f.PNG">
+  <img width="470" alt="Capture" src="https://user-images.githubusercontent.com/43299285/208054101-a882f125-bf61-402d-a92a-b5728bf31c3f.PNG">
 
 </div>
 
@@ -52,6 +52,8 @@ See image as following...
 ion-content, ion-toolbar, ion-back-button, ion-buttons, ion-footer, ion-title, ion-card, ion-item, ion-label, ion-icon, ion-list, ion-button, ion-infinite-scroll, LoadingController.
 
 ### Images of the App...
+
+<div align="center">
 
 <table border="0">
  <tr>
@@ -67,6 +69,8 @@ ion-content, ion-toolbar, ion-back-button, ion-buttons, ion-footer, ion-title, i
     </td>
  </tr>
 </table>
+
+</div>
 
 ### Technology used...
 
