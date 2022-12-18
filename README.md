@@ -1,4 +1,10 @@
-## Ionic Movie App
+<div align="center">
+
+ <img src="https://user-images.githubusercontent.com/43299285/208293533-36ed7a03-6b8f-4717-92aa-9d4193822b44.PNG" width="450px"/>
+
+ </div>
+ 
+ ## Ionic Movie App
 
 Android Native App where movies are rendered thanks to consuming [The Movie API](https://www.themoviedb.org/), it has been designed mainly for user play with two different views (Movies and Movies details) where data is handled via async HTTP calls using RxJS Observables as it is a Hibrid App using Ionic, Angular, RxJs and Capacitor.
 
