@@ -5,7 +5,10 @@
 >
 </app-header>
 
-<ion-content>
+<ion-content
+  [scrollEvents]="true"
+  (ionScroll)="getScrollPos($event)"
+>
   <ion-list>
     <ion-item
       button
@@ -24,6 +27,15 @@
       <ion-badge slot="end">{{ item.vote_average }}</ion-badge>
     </ion-item>
   </ion-list>
+
+  <ion-button
+    slot="fixed"
+    (click)="gotToTop()"
+    color="dark"
+    *ngIf="backToTop$ | async"
+  >
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </ion-button>
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 
 import { LoadingService } from 'src/app/shared/services/loading/loading.service';
 import { MovieService } from 'src/app/shared/services/movie/movie.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -15,6 +17,8 @@ export class MoviesPage implements OnInit {
   movies: any[] = [];
   currentPage: number = 1;
   imageBaseUrl = environment.images;
+  backToTop$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  @ViewChild(IonContent) content!: IonContent;
 
   constructor(
     private movieService: MovieService,
@@ -25,9 +29,23 @@ export class MoviesPage implements OnInit {
     this.loadMovies();
   }
 
-  loadMore(event: any): void {
+  loadMore(event: Event): void {
     this.currentPage++;
     this.loadMovies(event);
+  }
+
+  getScrollPos(pos: any): void {
+    this.showScrollButton(pos)
+      ? this.backToTop$.next(true)
+      : this.backToTop$.next(false);
+  }
+
+  gotToTop(): void {
+    this.content.scrollToTop(1000);
+  }
+
+  private showScrollButton(pos: any): boolean {
+    return pos.detail.scrollTop >= 150;
   }
 
   private loadMovies(event?: any): void {
