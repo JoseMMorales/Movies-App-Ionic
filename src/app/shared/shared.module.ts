@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HeaderComponent } from './components/header.component';
+import { LoadingService } from './services/loading/loading.service';
 import { MovieService } from './services/movie/movie.service';
 
 const angularModules = [CommonModule, FormsModule, IonicModule];
@@ -12,6 +13,6 @@ const angularModules = [CommonModule, FormsModule, IonicModule];
   declarations: [HeaderComponent],
   imports: [...angularModules],
   exports: [...angularModules, HeaderComponent],
-  providers: [MovieService],
+  providers: [MovieService, LoadingService],
 })
 export class SharedModule {}

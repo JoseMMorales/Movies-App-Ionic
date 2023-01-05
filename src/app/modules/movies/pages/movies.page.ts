@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { MovieService } from 'src/app/shared/services/movie/movie.service';
 import { environment } from 'src/environments/environment';
+
+import { LoadingService } from 'src/app/shared/services/loading/loading.service';
+import { MovieService } from 'src/app/shared/services/movie/movie.service';
 
 @Component({
   selector: 'app-movies',
@@ -17,33 +18,28 @@ export class MoviesPage implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private loadingCtrl: LoadingController
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit() {
     this.loadMovies();
   }
 
-  async loadMovies(event?: any) {
-    const loading = await this.loadingCtrl.create({
-      message: 'Loading...',
-      spinner: 'bubbles',
-    });
-    await loading.present();
+  loadMore(event: any): void {
+    this.currentPage++;
+    this.loadMovies(event);
+  }
 
+  private loadMovies(event?: any): void {
+    this.loadingService.loadingIonic('present');
     this.movieService.getTopRatedMovies(this.currentPage).subscribe((res) => {
-      loading.dismiss();
       this.movies.push(...res.results);
-
       event?.target.complete();
+
       if (event) {
         event.target.disabled = res.total_pages === this.currentPage;
       }
     });
-  }
-
-  loadMore(event: any) {
-    this.currentPage++;
-    this.loadMovies(event);
+    this.loadingService.loadingIonic('dismiss');
   }
 }
